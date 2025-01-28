@@ -63,7 +63,7 @@ const userSchema = new Schema(
 userSchema.pre("save", async function (next) {
   // Only hash the password if it has been modified (or is new)
   if (!this.password.isModified("password")) return next();
-  this.password = bcrypt.hash(this.password, 10);
+  this.password = await bcrypt.hash(this.password, 10);
 });
 
 //password validation
@@ -97,4 +97,4 @@ userSchema.methods.generateRefreshToken = function () {
 };
 
 // Create model and export
-const User = mongoose.model("User", userSchema);
+export const User = mongoose.model("User", userSchema);
