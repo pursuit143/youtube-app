@@ -18,7 +18,6 @@ app.use(cookieParser());
 import homeRouter from './routes/user.routes.js';
 // Route declarations
 app.use("/api/v1/users", homeRouter);
-app.use("/api/v1/users", homeRouter)
 
 
 
